@@ -1,13 +1,16 @@
 <?php
 
-namespace frontend\controllers;
+namespace backend\controllers;
 
+use Codeception\Module\Yii2;
 use yii\web\Controller;
 use yii\data\Pagination;
 use app\models\Country;
 
 class CountryController extends Controller
 {
+    public $enableCsrfValidation = false;
+
     public function actionIndex()
     {
         $query = Country::find();
@@ -41,5 +44,31 @@ class CountryController extends Controller
             'countries' => $data['countries'],
             'pagination' => $data['pagination'],
         ]);
+    }
+
+    /**
+     * 测试w3.js接口
+     */
+    public function actionTest()
+    {
+        $arr = [
+            'customers' => [
+                [
+                    "CustomerName" => "Ernst Handel",
+                    "City" => "Graz",
+                    "Country" => "Austria"
+                ],
+//                ["CustomerName" => "Galera del gastrnomo",
+//                    "City" => "Barcelona",
+//                    "Country" => "Spain"
+//                ]
+            ]
+        ];
+        $request = \Yii::$app->request;
+        $data = $request->post();
+        var_dump($data);
+        echo json_encode($arr);
+//        $txtAppModel = $_GET["model"];
+//        var_dump($txtAppModel);die;
     }
 }

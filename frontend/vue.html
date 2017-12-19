@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title id="id02">test vue.js</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+</head>
+<body>
+<ul id="id01">
+    <li w3-repeat="customers">{{CustomerName}}</li>
+</ul>
+<script src="dist/js/axios.min.js"></script>
+<script>
+    var data = {
+        "database": {
+            "connection": "localmysql",
+            "sql": "SELECT * FROM Customers"
+        }
+    };
+    axios.post('country/test', data)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+</script>
+</body>
+</html>
