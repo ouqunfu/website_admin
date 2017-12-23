@@ -9,7 +9,7 @@ use app\models\Country;
 
 class CountryController extends Controller
 {
-    public $enableCsrfValidation = false;
+//    public $enableCsrfValidation = false;
 
     public function actionIndex()
     {

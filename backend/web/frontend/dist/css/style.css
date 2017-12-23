@@ -1,0 +1,37 @@
+.strong {
+  padding: 3px 10px;
+  background: #d9edf7;
+  border: 1px solid #bce8f1;
+  color: #3a87ad;
+  border-radius: 2px;
+}
+
+.custom-li {
+  border: none;
+}
+
+.custom-input {
+  width: 60px;
+}
+
+.custom-select {
+  width: 150px;
+  display: inline-block;
+}
+
+#contents-column-list-info #contents-column-list tbody tr td {
+  vertical-align: middle;
+}
+
+#contents-column-list-info #contents-column-list tbody a {
+  padding-left: 10px;
+}
+
+.custom-input-icon {
+  margin-left: -1.5%;
+  margin-top: 0.5%;
+}
+
+.custom-tooltip {
+  padding: 1px 5px;
+}
