@@ -3,8 +3,20 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Url;
+use backend\assets\AppAsset;
 
 $this->title = 'AdminSYS - 后台管理中心';
+
+//load text editor css and js file
+AppAsset::addScript($this,'@web/frontend/bower_components/ckeditor/ckeditor.js');
+
+AppAsset::addCss($this,'@web/frontend/bower_components/bootstrap-fileinput/css/fileinput.min.css');
+AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js/fileinput.min.js');
+AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js/locales/zh.js');
+
+//自定义css
+//$cssString = ".cke{visibility:hidden;}";
+//$this->registerCss($cssString);
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -14,7 +26,7 @@ $this->title = 'AdminSYS - 后台管理中心';
   </h1>
   <ol class="breadcrumb">
     <li><i class="fa fa-dashboard"></i> 内容</li>
-    <li class="active"><a href="<?php echo Url::toRoute('columns/add');?>">添加栏目</a></li>
+    <li class="active"><a href="<?php echo Url::toRoute('columns/add'); ?>">添加栏目</a></li>
   </ol>
 </section>
 
@@ -101,61 +113,160 @@ $this->title = 'AdminSYS - 后台管理中心';
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
-                      The European languages are members of the same family. Their separate existence
-                      is a myth.
-                      For science, music, sport, etc, Europe uses the same vocabulary. The languages
-                      only differ
-                      in their grammar, their pronunciation and their most common words. Everyone
-                      realizes why a
-                      new common language would be desirable: one could refuse to pay expensive
-                      translators. To
-                      achieve this, it would be necessary to have uniform grammar, pronunciation and
-                      more common
-                      words. If several languages coalesce, the grammar of the resulting language is
-                      more simple
-                      and regular than that of the individual languages.
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="keywords" class="col-md-2 control-label">页面标题</label>
+                          <div class="col-md-5">
+                            <input type="text" class="form-control" id="keywords" placeholder="">
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="可填写不同于内容名称的关键词，有利于搜索优化！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="keywords" class="col-md-2 control-label">关键词</label>
+                          <div class="col-md-5">
+                            <input type="text" class="form-control" id="keywords" placeholder="">
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="网页META信息中的keywords信息，可填写与内容相关的关键词，以英文逗号相隔，有利于搜索优化！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="description" class="col-md-2 control-label">页面描述</label>
+                          <div class="col-md-5">
+                            <textarea class="form-control" id="description" placeholder=""></textarea>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="网页META信息中的description信息，可填写与内容相关的简介，有利于搜索优化！">!</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_3">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      when an unknown printer took a galley of type and scrambled it to make a type
-                      specimen book.
-                      It has survived not only five centuries, but also the leap into electronic
-                      typesetting,
-                      remaining essentially unchanged. It was popularised in the 1960s with the
-                      release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently with desktop
-                      publishing software
-                      like Aldus PageMaker including versions of Lorem Ipsum.
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="isshow" class="col-md-2 control-label">是否启用</label>
+                          <div class="col-md-5">
+                            <label class="radio-inline">
+                              <input id="isshow" type="radio" name="isshow" class="minimal" value="1">
+                              正常显示
+                            </label>
+                            <label class="radio-inline">
+                              <input id="isshow" type="radio" name="isshow" class="minimal" value="0">
+                              禁用
+                            </label>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="选择栏目是否启用！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="keywords" class="col-md-2 control-label">外部链接</label>
+                          <div class="col-md-5">
+                            <input type="text" class="form-control" id="keywords" placeholder="">
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="填写外部链接地址后，访问栏目将跳转到填写的地址！">!</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_4">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      when an unknown printer took a galley of type and scrambled it to make a type
-                      specimen book.
-                      It has survived not only five centuries, but also the leap into electronic
-                      typesetting,
-                      remaining essentially unchanged. It was popularised in the 1960s with the
-                      release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently with desktop
-                      publishing software
-                      like Aldus PageMaker including versions of Lorem Ipsum.
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="editor" class="col-md-2 control-label">封面内容</label>
+                          <div class="col-md-8">
+                            <textarea id="editor" name="editor" rows="50" cols="80"></textarea>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="如使用设置栏目封面，请在模板处选择本栏目应用list_page.html模板！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="img" class="col-md-2 control-label">栏目说明图片</label>
+                          <div class="col-md-5">
+                            <input type="file" name="img" id="img" class="file" data-show-preview="false" >
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="栏目banner功能,需在模板中调用显示！">!</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_5">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      when an unknown printer took a galley of type and scrambled it to make a type
-                      specimen book.
-                      It has survived not only five centuries, but also the leap into electronic
-                      typesetting,
-                      remaining essentially unchanged. It was popularised in the 1960s with the
-                      release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently with desktop
-                      publishing software
-                      like Aldus PageMaker including versions of Lorem Ipsum.
+                      <div class="row">
+                        <div class="col-md-10">
+                          <div class="alert alert-warning alert-dismissible" style="">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <i class="icon fa fa-warning"></i>
+                            勾选为该用户组禁止浏览或下载
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row"><div class="col-md-12"><p></p></div></div>
+                      <div class="row"><div class="col-md-12"><p></p></div></div>
+                      <div class="row">
+                        <div class="col-md-10">
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-condensed">
+                              <tbody>
+                              <tr>
+                                <th width="30%">用户组</th>
+                                <th width="30%">浏览</th>
+                                <th width="30%">下载</th>
+                              </tr>
+                              <tr>
+                                <td>管理员</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                              </tr>
+                              <tr>
+                                <td>文章管理员</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                              </tr>
+                              <tr>
+                                <td>一般会员</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                              </tr>
+                              <tr>
+                                <td>游客</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        <!-- /.box-body -->
+                        </div>
+                      </div>
                     </div>
                     <!-- /.tab-pane -->
                   </div>
@@ -178,3 +289,13 @@ $this->title = 'AdminSYS - 后台管理中心';
   </div>
 </section>
 <!-- /.content -->
+<!--自定义js-->
+<?php $this->beginBlock('custom') ?>
+  $(function () {
+    // ckeditor init
+    CKEDITOR.replace('editor', { height: '400px'});
+    // fileinput init
+    $("#img").fileinput();
+  })
+<?php $this->endBlock() ?>
+<?php $this->registerJs($this->blocks['custom'], \yii\web\View::POS_END); ?>

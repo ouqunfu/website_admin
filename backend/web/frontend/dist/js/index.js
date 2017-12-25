@@ -69,4 +69,7 @@ $(function () {
 
   // The Calender
   $('#calendar').datepicker();
+
+  //tooltip message
+  $('[data-toggle="tooltip"]').tooltip()
 });
