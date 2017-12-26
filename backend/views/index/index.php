@@ -12,7 +12,7 @@ $this->title = 'AdminSYS - 后台管理中心';
     首页
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?php echo Url::toRoute('index/index');?>"><i class="fa fa-dashboard"></i> 主页</a></li>
+    <li><a href="<?php echo Url::toRoute('index/index'); ?>"><i class="fa fa-dashboard"></i> 主页</a></li>
     <li class="active">控制面板</li>
   </ol>
 </section>

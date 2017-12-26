@@ -132,6 +132,9 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
             </div>
           </div>
         </div>
+        <div class="overlay">
+          <i class="fa fa-spinner fa-spin"></i>
+        </div>
       </div>
     </div>
   </div>

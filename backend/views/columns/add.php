@@ -284,6 +284,9 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
             <div class="col-md-12"><p></p></div>
           </div>
         </div>
+        <div class="overlay">
+          <i class="fa fa-spinner fa-spin"></i>
+        </div>
       </div>
     </div>
   </div>

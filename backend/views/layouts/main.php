@@ -9,6 +9,13 @@ use yii\helpers\Html;
 AppAsset::register($this);
 
 ?>
+<!--自定义js-->
+<?php $this->beginBlock('loading') ?>
+window.onload=function(){
+$(".overlay").remove();
+}
+<?php $this->endBlock() ?>
+<?php $this->registerJs($this->blocks['loading'], \yii\web\View::POS_HEAD); ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -22,24 +29,17 @@ AppAsset::register($this);
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <?php $this->beginBody() ?>
-
 <div class="wrapper">
-
     <?php $this->beginContent('@app/views/layouts/main-header.php'); $this->endContent(); ?>
-
     <?php $this->beginContent('@app/views/layouts/main-sidebar.php'); $this->endContent(); ?>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <?= $content ?>
   </div>
   <!-- /.content-wrapper -->
-
     <?php $this->beginContent('@app/views/layouts/main-footer.php'); $this->endContent(); ?>
-
 </div>
 <!-- ./wrapper -->
-
 <?php $this->endBody() ?>
 </body>
 </html>

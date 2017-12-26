@@ -70,7 +70,7 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                 </div>
                 <div class="row">
                   <div class="form-group">
-                    <label for="ishtml" class="col-md-2 control-label">是否生成HTML</label>
+                    <label for="ishtml" class="col-md-2 control-label">生成静态</label>
                     <div class="col-md-5">
                       <label class="radio-inline">
                         <input type="radio" name="ishtml" class="minimal" value="0" checked="checked">
@@ -92,7 +92,7 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                   <div class="form-group">
                     <label for="img" class="col-md-2 control-label">专题图片</label>
                     <div class="col-md-5">
-                      <input type="file" name="img" id="img" class="file" data-show-preview="false" style="visibility: hidden;">
+                      <input type="file" name="img" id="img" class="file" data-show-preview="false" style="display: none;">
                     </div>
                     <div class="col-md-1 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
@@ -105,7 +105,7 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                   <div class="form-group">
                     <label for="editor" class="col-md-2 control-label">描述</label>
                     <div class="col-md-8">
-                      <textarea id="editor" name="editor" rows="50" cols="80" style="visibility: hidden;"></textarea>
+                      <textarea id="editor" name="editor" rows="50" cols="80" style="display: none;"></textarea>
                     </div>
                     <div class="col-md-1 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
@@ -125,6 +125,9 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
           <div class="row">
             <div class="col-md-12"><p></p></div>
           </div>
+        </div>
+        <div class="overlay">
+          <i class="fa fa-spinner fa-spin"></i>
         </div>
       </div>
     </div>
