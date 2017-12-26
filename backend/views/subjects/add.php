@@ -92,7 +92,7 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                   <div class="form-group">
                     <label for="img" class="col-md-2 control-label">专题图片</label>
                     <div class="col-md-5">
-                      <input type="file" name="img" id="img" class="file" data-show-preview="false" >
+                      <input type="file" name="img" id="img" class="file" data-show-preview="false" style="visibility: hidden;">
                     </div>
                     <div class="col-md-1 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
@@ -105,7 +105,7 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                   <div class="form-group">
                     <label for="editor" class="col-md-2 control-label">描述</label>
                     <div class="col-md-8">
-                      <textarea id="editor" name="editor" rows="50" cols="80"></textarea>
+                      <textarea id="editor" name="editor" rows="50" cols="80" style="visibility: hidden;"></textarea>
                     </div>
                     <div class="col-md-1 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"

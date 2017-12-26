@@ -8,7 +8,7 @@ use backend\assets\AppAsset;
 $this->title = 'AdminSYS - 后台管理中心';
 
 //load text editor css and js file
-AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css');
+AppAsset::addCss($this, '@web/frontend/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css');
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -17,7 +17,7 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
   </h1>
   <ol class="breadcrumb">
     <li><i class="fa fa-dashboard"></i> 内容</li>
-    <li class="active"><a href="<?php echo Url::toRoute('columns/list');?>">栏目管理</a></li>
+    <li class="active"><a href="<?php echo Url::toRoute('columns/list'); ?>">栏目管理</a></li>
   </ol>
 </section>
 
@@ -30,7 +30,7 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
           <div id="contents-column-list-info" class="dataTables_wrapper dt-bootstrap">
             <div class="row">
               <div class="col-sm-1">
-                <a href="<?php echo Url::toRoute('columns/add');?>">
+                <a href="<?php echo Url::toRoute('columns/add'); ?>">
                   <button type="button" class="btn btn-block btn-primary">添加栏目</button>
                 </a>
               </div>
