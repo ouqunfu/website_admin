@@ -13,11 +13,11 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    栏目管理
+    分类管理
   </h1>
   <ol class="breadcrumb">
     <li><i class="fa fa-dashboard"></i> 内容</li>
-    <li class="active"><a href="<?php echo Url::toRoute('columns/list');?>">栏目管理</a></li>
+    <li class="active"><a href="<?php echo Url::toRoute('cato/list');?>">分类管理</a></li>
   </ol>
 </section>
 
@@ -30,8 +30,8 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
           <div id="contents-column-list-info" class="dataTables_wrapper dt-bootstrap">
             <div class="row">
               <div class="col-sm-1">
-                <a href="<?php echo Url::toRoute('columns/add');?>">
-                  <button type="button" class="btn btn-block btn-primary">添加栏目</button>
+                <a href="<?php echo Url::toRoute('cato/add');?>">
+                  <button type="button" class="btn btn-block btn-primary">添加分类</button>
                 </a>
               </div>
             </div>
@@ -49,17 +49,11 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
                     <th width="8%" class="custom-input">
                       排序
                     </th>
-                    <th width="5%">
-                      ID
-                    </th>
-                    <th width="20%">
-                      栏目名称
-                    </th>
-                    <th width="20%">
-                      目录名称
-                    </th>
                     <th width="10%">
-                      导航
+                      分类ID
+                    </th>
+                    <th width="40%">
+                      分类名称
                     </th>
                     <th width="32%">
                       操作
@@ -73,8 +67,6 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
                       <input type="text" class="form-control custom-input" placeholder="0" value="0">
                     </td>
                     <td class="sorting_1">Gecko</td>
-                    <td>Firefox 1.0</td>
-                    <td>Win 98+ / OSX.2+</td>
                     <td>1.7</td>
                     <td>
                       <a href="javascript:void(0)" target="_blank">查看</a>
@@ -87,98 +79,8 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
                     <td class="sorting_1">
                       <input type="text" class="form-control custom-input" placeholder="0" value="0">
                     </td>
-                    <td class="sorting_1">Gecko</td>
-                    <td>Firefox 1.5</td>
                     <td>Win 98+ / OSX.2+</td>
                     <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr role="row" class="odd">
-                    <td><input type="checkbox"></td>
-                    <td class="sorting_1">
-                      <input type="text" class="form-control custom-input" placeholder="0" value="0">
-                    </td>
-                    <td class="sorting_1">Gecko</td>
-                    <td>Firefox 2.0</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr role="row" class="even">
-                    <td><input type="checkbox"></td>
-                    <td class="sorting_1">
-                      <input type="text" class="form-control custom-input" placeholder="0" value="0">
-                    </td>
-                    <td class="sorting_1">Gecko</td>
-                    <td>Firefox 3.0</td>
-                    <td>Win 2k+ / OSX.3+</td>
-                    <td>1.9</td>
-                    <td>A</td>
-                  </tr>
-                  <tr role="row" class="odd">
-                    <td><input type="checkbox"></td>
-                    <td class="sorting_1">
-                      <input type="text" class="form-control custom-input" placeholder="0" value="0">
-                    </td>
-                    <td class="sorting_1">Gecko</td>
-                    <td>Camino 1.0</td>
-                    <td>OSX.2+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr role="row" class="even">
-                    <td><input type="checkbox"></td>
-                    <td class="sorting_1">
-                      <input type="text" class="form-control custom-input" placeholder="0" value="0">
-                    </td>
-                    <td class="sorting_1">Gecko</td>
-                    <td>Camino 1.5</td>
-                    <td>OSX.3+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr role="row" class="odd">
-                    <td><input type="checkbox"></td>
-                    <td class="sorting_1">
-                      <input type="text" class="form-control custom-input" placeholder="0" value="0">
-                    </td>
-                    <td class="sorting_1">Gecko</td>
-                    <td>Netscape 7.2</td>
-                    <td>Win 95+ / Mac OS 8.6-9.2</td>
-                    <td>1.7</td>
-                    <td>A</td>
-                  </tr>
-                  <tr role="row" class="even">
-                    <td><input type="checkbox"></td>
-                    <td class="sorting_1">
-                      <input type="text" class="form-control custom-input" placeholder="0" value="0">
-                    </td>
-                    <td class="sorting_1">Gecko</td>
-                    <td>Netscape Browser 8</td>
-                    <td>Win 98SE+</td>
-                    <td>1.7</td>
-                    <td>A</td>
-                  </tr>
-                  <tr role="row" class="odd">
-                    <td><input type="checkbox"></td>
-                    <td class="sorting_1">
-                      <input type="text" class="form-control custom-input" placeholder="0" value="0">
-                    </td>
-                    <td class="sorting_1">Gecko</td>
-                    <td>Netscape Navigator 9</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                  </tr>
-                  <tr role="row" class="even">
-                    <td><input type="checkbox"></td>
-                    <td class="sorting_1">
-                      <input type="text" class="form-control custom-input" placeholder="0" value="0">
-                    </td>
-                    <td class="sorting_1">Gecko</td>
-                    <td>Mozilla 1.0</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>1</td>
                     <td>A</td>
                   </tr>
                   </tbody>

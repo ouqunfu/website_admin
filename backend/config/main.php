@@ -52,6 +52,7 @@ return [
             'bundles' => [
 //                'yii\web\JqueryAsset' => false,
             ],
+//            'linkAssets' => true,
         ],
     ],
     'params' => $params,
