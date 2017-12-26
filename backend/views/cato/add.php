@@ -190,7 +190,7 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                       </div>
                       <div class="row">
                         <div class="form-group">
-                          <label for="img" class="col-md-2 control-label">栏目说明图片</label>
+                          <label for="img" class="col-md-2 control-label">分类说明图片</label>
                           <div class="col-md-5">
                             <input type="file" name="img" id="img" class="file" data-show-preview="false" >
                           </div>
