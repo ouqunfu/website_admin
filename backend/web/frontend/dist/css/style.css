@@ -35,3 +35,8 @@
 .custom-tooltip {
   padding: 1px 5px;
 }
+
+/*覆盖样式*/
+.control-label {
+  font-weight: normal;
+}
