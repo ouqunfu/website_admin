@@ -27,4 +27,15 @@ class ContentsController extends Controller
     {
         return $this->render('add');
     }
+
+    public function actionCheckList()
+    {
+        return $this->render('list');
+    }
+
+    public function actionsRecycle()
+    {
+        $this->view->params['btnTag'] = 'recycle';
+        return $this->render('list');
+    }
 }

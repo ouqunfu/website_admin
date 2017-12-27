@@ -61,7 +61,7 @@ AppAsset::addCss($this, '@web/frontend/bower_components/datatables.net-bs/css/da
                   <a href="<?php echo Url::toRoute('contents/add'); ?>">
                     <button type="button" class="btn bg-blue-gradient btn-sm">添加内容</button>
                   </a>
-                  <a href="javascript:void(0);">
+                  <a href="<?php echo Url::toRoute('contents/check-list'); ?>">
                     <button type="button" class="btn bg-primary btn-sm">审核内容</button>
                   </a>
                   <button type="button" class="btn bg-navy-active btn-sm">回收站</button>
@@ -153,7 +153,7 @@ AppAsset::addCss($this, '@web/frontend/bower_components/datatables.net-bs/css/da
                     <td>Win 98+ / OSX.2+</td>
                     <td>1.8</td>
                     <td>2017-03-09 21:20:51</td>
-                    <td><i class="fa fa-check" style="color: #00a65a;"></i></td>
+                    <td><i class="fa fa-times" style="color: #dd4b39;"></i></td>
                     <td>
                       <a href="javascript:void(0)" target="_blank">查看</a>
                       <a href="javascript:void(0)">编辑</a>
@@ -186,6 +186,7 @@ AppAsset::addCss($this, '@web/frontend/bower_components/datatables.net-bs/css/da
             </div>
             <div class="row">
               <div class="col-sm-3">
+                <?php if(isset($this->params['btnTag']) && 'recycle' == $this->params['btnTag'])?>
                 <button type="button" class="btn bg-purple btn-sm">排序</button>
                 <button type="button" class="btn bg-primary btn-sm">审核</button>
                 <button type="button" class="btn bg-gray-active btn-sm">删除</button>

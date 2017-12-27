@@ -14,6 +14,13 @@ AppAsset::addCss($this,'@web/frontend/bower_components/bootstrap-fileinput/css/f
 AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js/fileinput.min.js');
 AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js/locales/zh.js');
 
+AppAsset::addCss($this,'@web/frontend/bower_components/select2/dist/css/select2.css');
+AppAsset::addScript($this,'@web/frontend/bower_components/select2/dist/js/select2.full.min.js');
+
+AppAsset::addCss($this,'@web/frontend/bower_components/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css');
+AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js');
+AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js');
+
 //自定义css
 //$cssString = ".cke{visibility:hidden;}";
 //$this->registerCss($cssString);
@@ -36,7 +43,7 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
     <div class="col-md-12">
       <div class="box">
         <div class="box-body">
-          <div class="row">
+          <div class="row blank">
             <div class="col-sm-12"><p></p></div>
           </div>
           <div class="row">
@@ -55,29 +62,14 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                     <div class="tab-pane active" id="tab_1">
                       <div class="row">
                         <div class="form-group">
-                          <label for="parent" class="col-md-2 control-label">所属栏目</label>
+                          <label for="alias" class="col-md-2 control-label">标题</label>
                           <div class="col-md-5">
-                            <select class="form-control" id="parent">
-                              <option value="0" selected="">请选择...</option>
-                            </select>
+                            <input type="text" class="form-control" id="alias" placeholder="">
                           </div>
                           <div class="col-md-1 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
                                   class="badge bg-yellow-gradient custom-tooltip"
-                                  data-original-title="如果为一级栏目，不需要选择！">!</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="form-group">
-                          <label for="columnName" class="col-md-2 control-label">栏目名称</label>
-                          <div class="col-md-5">
-                            <input type="text" class="form-control" id="columnName" placeholder="">
-                          </div>
-                          <div class="col-md-1 custom-input-icon">
-                            <span data-toggle="tooltip" data-placement="top"
-                                  class="badge bg-yellow-gradient custom-tooltip"
-                                  data-original-title="请填写栏目名称！">!</span>
+                                  data-original-title="请填写标题！">!</span>
                           </div>
                         </div>
                       </div>
@@ -96,17 +88,177 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                       </div>
                       <div class="row">
                         <div class="form-group">
-                          <label for="isNav" class="col-md-2 control-label">在导航中显示</label>
+                          <label for="columns" class="col-md-2 control-label">栏目</label>
                           <div class="col-md-5">
-                            <select class="form-control" id="isNav">
-                              <option value="1">显示</option>
-                              <option value="0">不显示</option>
+                            <select class="form-control" id="columns">
+                              <option value="0" selected="">请选择...</option>
                             </select>
                           </div>
                           <div class="col-md-1 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
                                   class="badge bg-yellow-gradient custom-tooltip"
-                                  data-original-title="是否在导航栏中显示！">!</span>
+                                  data-original-title="选择内容所在栏目，如果栏目有子级栏目，请选择子级栏目！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="cato" class="col-md-2 control-label">分类</label>
+                          <div class="col-md-5">
+                            <select class="form-control" id="cato">
+                              <option value="0" selected="">请选择...</option>
+                            </select>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="选择内容所在分类，如果分类有子级分类，请选择子级分类！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="cato" class="col-md-2 control-label">专题</label>
+                          <div class="col-md-5">
+                            <select class="form-control" id="cato">
+                              <option value="0" selected="">请选择...</option>
+                            </select>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="将内容划分到不同专题内，可对不同内容进行区分！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="summary" class="col-md-2 control-label">内容摘要</label>
+                          <div class="col-md-5">
+                            <textarea id="summary" name="summary" rows="8" cols="107"></textarea>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="请填写内容摘要！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="editor" class="col-md-2 control-label">正文</label>
+                          <div class="col-md-8">
+                            <textarea id="editor" name="editor" rows="50" cols="80" style="display: none;"></textarea>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="请填写正文内容！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-5">
+                          <input type="checkbox">第一张图片自动保存为缩略图
+                        </div>
+                      </div>
+                      <div class="row blank">
+                        <div class="col-sm-12"><p></p></div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="tags" class="col-md-2 control-label">Tag标签</label>
+                          <div class="col-md-5">
+                            <select class="form-control select2" multiple="multiple" data-placeholder="请选择...">
+                              <option>Alabama</option>
+                              <option>Alaska</option>
+                              <option>California</option>
+                              <option>Delaware</option>
+                              <option>Tennessee</option>
+                              <option>Texas</option>
+                              <option>Washington</option>
+                              <option>Washington2</option>
+                              <option>Washington3</option>
+                              <option>Washington4</option>
+                            </select>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="选择内容所属Tag标签！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="adddate" class="col-md-2 control-label">发布时间</label>
+                          <div class="col-md-5">
+                            <input type="text" class="form-control" id="adddate" readonly>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="内容发布时间！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="outtime" class="col-md-2 control-label">过期时间</label>
+                          <div class="col-md-5">
+                            <input type="text" class="form-control" id="outtime" readonly>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="过期内容会被移动到回收站！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="author" class="col-md-2 control-label">发布作者</label>
+                          <div class="col-md-5">
+                            <input type="text" class="form-control" id="author" placeholder="admin">
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="内容发布作者名，可自定义！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="source" class="col-md-2 control-label">来源</label>
+                          <div class="col-md-5">
+                            <input type="text" class="form-control" id="source" placeholder="">
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="内容发布来源，可自定义，默认为本站网址！">!</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="checked" class="col-md-2 control-label">审核</label>
+                          <div class="col-md-5">
+                            <label class="radio-inline">
+                              <input id="checked1" type="radio" name="checked" class="minimal" value="1">
+                              审核
+                            </label>
+                            <label class="radio-inline">
+                              <input id="checked2" type="radio" name="checked" class="minimal" value="0">
+                              不审核
+                            </label>
+                          </div>
+                          <div class="col-md-1 custom-input-icon">
+                            <span data-toggle="tooltip" data-placement="top"
+                                  class="badge bg-yellow-gradient custom-tooltip"
+                                  data-original-title="设置内容是否发布，勾选未审核，不在前台显示，内容在后台列表可继续编辑。默认为审核状态！">!</span>
                           </div>
                         </div>
                       </div>
@@ -143,7 +295,7 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                         <div class="form-group">
                           <label for="description" class="col-md-2 control-label">页面描述</label>
                           <div class="col-md-5">
-                            <textarea class="form-control" id="description" placeholder=""></textarea>
+                            <textarea id="description" name="description" rows="8" cols="107"></textarea>
                           </div>
                           <div class="col-md-1 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
@@ -155,25 +307,20 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_3">
+                      <div class="row blank">
+                        <div class="col-sm-12"><p></p></div>
+                      </div>
                       <div class="row">
-                        <div class="form-group">
-                          <label for="isshow" class="col-md-2 control-label">是否启用</label>
-                          <div class="col-md-5">
-                            <label class="radio-inline">
-                              <input id="isshow" type="radio" name="isshow" class="minimal" value="1">
-                              正常显示
-                            </label>
-                            <label class="radio-inline">
-                              <input id="isshow" type="radio" name="isshow" class="minimal" value="0">
-                              禁用
-                            </label>
-                          </div>
-                          <div class="col-md-1 custom-input-icon">
-                            <span data-toggle="tooltip" data-placement="top"
-                                  class="badge bg-yellow-gradient custom-tooltip"
-                                  data-original-title="选择栏目是否启用！">!</span>
-                          </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                        【根据选择的栏目和分类】此处为扩展字段属性
                         </div>
+                      </div>
+                      <div class="row blank">
+                        <div class="col-sm-12"><p></p></div>
+                      </div>
+                      <div class="row blank">
+                        <div class="col-sm-12"><p></p></div>
                       </div>
                       <div class="row">
                         <div class="form-group">
@@ -184,7 +331,7 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                           <div class="col-md-1 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
                                   class="badge bg-yellow-gradient custom-tooltip"
-                                  data-original-title="填写外部链接地址后，访问栏目将跳转到填写的地址！">!</span>
+                                  data-original-title="填写外部链接地址后，点击标题将跳转到填写的地址！">!</span>
                           </div>
                         </div>
                       </div>
@@ -193,27 +340,14 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
                     <div class="tab-pane" id="tab_4">
                       <div class="row">
                         <div class="form-group">
-                          <label for="editor" class="col-md-2 control-label">封面内容</label>
-                          <div class="col-md-8">
-                            <textarea id="editor" name="editor" rows="50" cols="80"></textarea>
-                          </div>
-                          <div class="col-md-1 custom-input-icon">
-                            <span data-toggle="tooltip" data-placement="top"
-                                  class="badge bg-yellow-gradient custom-tooltip"
-                                  data-original-title="如使用设置栏目封面，请在模板处选择本栏目应用list_page.html模板！">!</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="form-group">
-                          <label for="img" class="col-md-2 control-label">栏目说明图片</label>
+                          <label for="thumbimg" class="col-md-2 control-label">缩略图</label>
                           <div class="col-md-5">
-                            <input type="file" name="img" id="img" class="file" data-show-preview="false" >
+                            <input type="file" name="thumbimg" id="thumbimg" class="file" data-show-preview="true" >
                           </div>
                           <div class="col-md-1 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
                                   class="badge bg-yellow-gradient custom-tooltip"
-                                  data-original-title="栏目banner功能,需在模板中调用显示！">!</span>
+                                  data-original-title="内容缩略图！">!</span>
                           </div>
                         </div>
                       </div>
@@ -299,6 +433,23 @@ AppAsset::addScript($this,'@web/frontend/bower_components/bootstrap-fileinput/js
     CKEDITOR.replace('editor', { height: '400px'});
     // fileinput init
     $("#img").fileinput();
+    //Initialize Select2 Elements
+    $('.select2').select2();
+    //Date time picker
+    $('#adddate').datetimepicker({
+      language:  'zh-CN',
+      autoclose: 1,//选中之后自动隐藏日期选择框
+      todayBtn: 1,//今日按钮
+      todayHighlight: 1,
+      format: "yyyy-mm-dd hh:ii:ss"
+    })
+    $('#outtime').datetimepicker({
+    language:  'zh-CN',
+    autoclose: 1,//选中之后自动隐藏日期选择框
+    todayBtn: 1,//今日按钮
+    todayHighlight: 1,
+    format: "yyyy-mm-dd"
+    })
   })
 <?php $this->endBlock() ?>
 <?php $this->registerJs($this->blocks['custom'], \yii\web\View::POS_END); ?>
