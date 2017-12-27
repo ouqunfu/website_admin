@@ -64,7 +64,9 @@ AppAsset::addCss($this, '@web/frontend/bower_components/datatables.net-bs/css/da
                   <a href="<?php echo Url::toRoute('contents/check-list'); ?>">
                     <button type="button" class="btn bg-primary btn-sm">审核内容</button>
                   </a>
-                  <button type="button" class="btn bg-navy-active btn-sm">回收站</button>
+                  <a href="<?php echo Url::toRoute('contents/recycle'); ?>">
+                    <button type="button" class="btn bg-navy-active btn-sm">回收站</button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -186,11 +188,15 @@ AppAsset::addCss($this, '@web/frontend/bower_components/datatables.net-bs/css/da
             </div>
             <div class="row">
               <div class="col-sm-3">
-                <?php if(isset($this->params['btnTag']) && 'recycle' == $this->params['btnTag'])?>
-                <button type="button" class="btn bg-purple btn-sm">排序</button>
-                <button type="button" class="btn bg-primary btn-sm">审核</button>
-                <button type="button" class="btn bg-gray-active btn-sm">删除</button>
-                <button type="button" class="btn bg-gray btn-sm">彻底删除</button>
+                  <?php if(isset($this->params['btnTag']) && 'recycle' == $this->params['btnTag']) { ?>
+                    <button type="button" class="btn bg-purple btn-sm">排序</button>
+                    <button type="button" class="btn bg-gray btn-sm">彻底删除</button>
+                  <?php }else { ?>
+                    <button type="button" class="btn bg-purple btn-sm">排序</button>
+                    <button type="button" class="btn bg-primary btn-sm">审核</button>
+                    <button type="button" class="btn bg-gray-active btn-sm">删除</button>
+                    <button type="button" class="btn bg-gray btn-sm">彻底删除</button>
+                  <?php } ?>
               </div>
             </div>
             <div class="row">

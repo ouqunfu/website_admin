@@ -6,10 +6,10 @@ use yii\web\Controller;
 
 /**
  * @author: qunfu
- * @date: 2017/12/26
+ * @date: 2017/12/27
  * @description:
  */
-class ContentsController extends Controller
+class UrlManageController extends Controller
 {
     public function beforeAction($action)
     {
@@ -26,16 +26,5 @@ class ContentsController extends Controller
     public function actionAdd()
     {
         return $this->render('add');
-    }
-
-    public function actionCheckList()
-    {
-        return $this->render('list');
-    }
-
-    public function actionRecycle()
-    {
-        $this->view->params['btnTag'] = 'recycle';
-        return $this->render('list');
     }
 }

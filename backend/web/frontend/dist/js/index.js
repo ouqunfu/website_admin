@@ -71,5 +71,68 @@ $(function () {
   $('#calendar').datepicker();
 
   //tooltip message
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip();
+
+  //url manage
+  $(".select-url-tag").click(function () {
+    var urlRule = $("#urlRule").val();
+    var selectTag = $(this).attr("data-rule");
+    // urlRule = urlRule ? urlRule + '/' + $(this).attr("data-rule") : $(this).attr("data-rule");
+    if (urlRule) {
+      var arrUrlRule = urlRule.split('/');
+      var tempArr = [];
+      var flag = -1;
+      for (var i = 0; i < arrUrlRule.length; i++) {
+        if (selectTag === arrUrlRule[i]) {
+          flag = i;
+        }
+      }
+      if (flag > -1) {
+        arrUrlRule.splice(flag, 1);
+        $(this).removeClass('selected-url');
+      } else {
+        arrUrlRule.push(selectTag);
+        $(this).addClass('selected-url');
+      }
+      for (var i = 0; i < arrUrlRule.length; i++) {
+        if(arrUrlRule[i]){
+          tempArr.push(arrUrlRule[i]);
+        }
+      }
+      urlRule = tempArr.join('/');
+    }
+    else {
+      urlRule = $(this).attr("data-rule");
+      $(this).addClass('selected-url');
+    }
+    urlRule = urlRule ? '/' + urlRule : urlRule;
+    $("#urlRule").val(urlRule);
+  });
+  $("#urlRule").on('blur',function () {
+    var urlRule = $(this).val();
+    var selectTags = [];
+    $(".select-url-tag").each(function (e) {
+      selectTags.push($(this).attr("data-rule"));
+      $(this).removeClass('selected-url');
+    });
+    if (urlRule) {
+      var arrUrlRule = urlRule.split('/');
+      arrUrlRule.forEach(function (rule) {
+        $(".select-url-tag").each(function (e) {
+          if(rule === $(this).attr("data-rule")){
+            $(this).addClass('selected-url');
+          }
+        });
+      });
+      var tempArr = [];
+      for (var i = 0; i < arrUrlRule.length; i++) {
+        if(arrUrlRule[i]){
+          tempArr.push(arrUrlRule[i]);
+        }
+      }
+      urlRule = tempArr.join('/');
+      urlRule = urlRule ? '/' + urlRule : urlRule;
+      $("#urlRule").val(urlRule);
+    }
+  })
 });

@@ -1,42 +1,49 @@
 .strong {
-  padding: 3px 10px;
-  background: #d9edf7;
-  border: 1px solid #bce8f1;
-  color: #3a87ad;
-  border-radius: 2px;
+    padding: 3px 10px;
+    background: #d9edf7;
+    border: 1px solid #bce8f1;
+    color: #3a87ad;
+    border-radius: 2px;
 }
 
 .custom-li {
-  border: none;
+    border: none;
 }
 
 .custom-input {
-  width: 60px;
+    width: 60px;
 }
 
 .custom-select {
-  width: 150px;
-  display: inline-block;
+    width: 150px;
+    display: inline-block;
 }
 
 #contents-column-list-info #contents-column-list tbody tr td {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 #contents-column-list-info #contents-column-list tbody a {
-  padding-right: 10px;
+    padding-right: 10px;
 }
 
 .custom-input-icon {
-  margin-left: -1.5%;
-  margin-top: 0.5%;
+    margin-left: -1.5%;
+    margin-top: 0.5%;
 }
 
 .custom-tooltip {
-  padding: 1px 5px;
+    padding: 1px 5px;
 }
 
 /*覆盖样式*/
 .control-label {
-  font-weight: normal;
+    font-weight: normal;
+}
+
+/*添加url，选中变量*/
+.selected-url {
+    border-color: #367fa9;
+    background-color: #367fa9;
+    color: #fff;
 }
