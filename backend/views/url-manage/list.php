@@ -29,7 +29,7 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
         <div class="box-body">
           <div id="contents-column-list-info" class="dataTables_wrapper dt-bootstrap">
             <div class="row">
-              <div class="col-sm-1">
+              <div class="col-sm-4 col-md-1">
                 <a href="<?php echo Url::toRoute('url-manage/add');?>">
                   <button type="button" class="btn btn-block btn-primary">添加URL规则</button>
                 </a>
