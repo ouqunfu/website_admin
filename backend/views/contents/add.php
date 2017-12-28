@@ -138,11 +138,11 @@ $this->registerCss($cssString);
                                   data-original-title="请填写正文内容！">!</span>
                       </div>
                     </div>
-                    <div class="checkbox">
-                      <div class="col-sm-2 control-label"></div>
-                      <label class="col-sm-8 col-md-5">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label"></label>
+                      <div class="col-sm-8 col-md-5">
                         <input type="checkbox">第一张图片自动保存为缩略图
-                      </label>
+                      </div>
                     </div>
                     <div class="form-group">
                       <label for="tags" class="col-sm-2 control-label">Tag标签</label>

@@ -51,7 +51,7 @@ use yii\helpers\Url;
           <li><a href="<?php echo Url::toRoute('subjects/list');?>">专题管理</a></li>
           <li><a href="<?php echo Url::toRoute('contents/list');?>">内容管理</a></li>
           <li><a href="<?php echo Url::toRoute('url-manage/list');?>">URL规则</a></li>
-          <li><a href="<?php echo Url::toRoute('img-manage/list');?>">图片库</a></li>
+          <li><a href="<?php echo Url::toRoute('gallery/list-dir');?>">图片库</a></li>
           <li><a href="<?php echo Url::toRoute('tags/list');?>">标签管理</a></li>
         </ul>
       </li>
