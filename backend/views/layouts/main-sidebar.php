@@ -77,7 +77,7 @@ use yii\helpers\Url;
         <ul class="treeview-menu" <?php if('functions' == $this->params['tag']) echo 'style="display:block"';?>>
           <li><a href="<?php echo Url::toRoute('notice/list-notice');?>">公告管理</a></li>
           <li><a href="<?php echo Url::toRoute('notice/list-message');?>">留言管理</a></li>
-          <li><a href="<?php echo Url::toRoute('comment/list');?>">评论管理</a></li>
+          <li><a href="<?php echo Url::toRoute('comments/list');?>">评论管理</a></li>
           <li><a href="<?php echo Url::toRoute('data-manage/list');?>">数据管理</a></li>
         </ul>
       </li>
