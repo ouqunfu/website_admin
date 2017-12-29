@@ -17,6 +17,7 @@ class NoticeController extends Controller
         $this->view->params['tag'] = 'functions';
         return true;
     }
+
     public function actionListNotice()
     {
         return $this->render('list-notice');
@@ -25,5 +26,10 @@ class NoticeController extends Controller
     public function actionAddNotice()
     {
         return $this->render('add-notice');
+    }
+
+    public function actionListMessage()
+    {
+        return $this->render('list-message');
     }
 }
