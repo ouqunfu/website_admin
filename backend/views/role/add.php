@@ -8,14 +8,10 @@ use backend\assets\AppAsset;
 $this->title = 'AdminSYS - 后台管理中心';
 
 //load text editor css and js file
-AppAsset::addScript($this, '@web/frontend/bower_components/ckeditor/ckeditor.js');
-
-AppAsset::addCss($this, '@web/frontend/bower_components/bootstrap-fileinput/css/fileinput.min.css');
-AppAsset::addScript($this, '@web/frontend/bower_components/bootstrap-fileinput/js/fileinput.min.js');
-AppAsset::addScript($this, '@web/frontend/bower_components/bootstrap-fileinput/js/locales/zh.js');
+AppAsset::addScript($this, '@web/frontend/dist/js/role.min.js');
 
 //自定义css
-$cssString = ".nav-tabs-custom{box-shadow: none;}";
+$cssString = ".nav-tabs-custom{box-shadow: none;} .table tbody tr td{padding-top: 0;}";
 $this->registerCss($cssString);
 ?>
   <!-- Content Header (Page header) -->
@@ -35,7 +31,7 @@ $this->registerCss($cssString);
     <div class="row">
       <div class="col-md-12">
         <div class="box">
-          <form class="form-horizontal">
+          <form class="form-horizontal" action="<?php echo Url::toRoute('role/post'); ?>" method="post">
             <div class="box-body">
               <!-- Custom Tabs -->
               <div class="nav-tabs-custom">
@@ -77,22 +73,107 @@ $this->registerCss($cssString);
                   <div class="tab-pane" id="tab_2">
                     <div class="form-group">
                       <div class="col-sm-12 col-md-12">
-                        <table id="contents-role-list" class="table table-striped dataTable" role="grid">
+                        <table id="role-list-0" class="table">
                           <tbody>
-                          <tr role="row" class="odd">
-                            <td><input type="checkbox">内容</td>
+                          <tr role="row" class="odd bg-gray">
+                            <td colspan="3">
+                              <div class="checkbox">
+                                <label><input type="checkbox" class="node-1" id="top-node-0" belong="0">内容</label>
+                              </div>
+                            </td>
                           </tr>
-                          <tr role="row" class="odd">
-                            <td>栏目管理</td>
-                            <td>超级管理员</td>
-                            <td>。。。</td>
+                          <tr role="row">
+                            <td colspan="1" width="150px">
+                              <div class="checkbox">
+                                <label class="margin"><input type="checkbox" class="node-2" id="parent-node-0-0" parent-node="0" belong="0">栏目管理</label>
+                              </div>
+                            </td>
+                            <td colspan="2">
+                              <div class="checkbox" id="node-list-0-0">
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-0">栏目列表</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-0">添加栏目</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-0">修改栏目</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-0">删除栏目</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-0">栏目前台权限</label>
+                              </div>
+                            </td>
                           </tr>
-                          <tr role="row" class="odd">
-                            <td>1</td>
-                            <td>超级管理员</td>
-                            <td>。。。</td>
+                          <tr role="row">
+                            <td colspan="1" width="150px">
+                              <div class="checkbox">
+                                <label class="margin"><input type="checkbox" class="node-2" id="parent-node-0-1" parent-node="1" belong="0">内容管理</label>
+                              </div>
+                            </td>
+                            <td colspan="2">
+                              <div class="checkbox" id="node-list-0-1">
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-1">内容列表</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-1">添加内容</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-1">修改内容</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-1">删除内容</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-1">审核内容</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-1">内容前台权限</label>
+                              </div>
+                            </td>
                           </tr>
-                          <tr role="row" class="odd"><td colspan="4"><hr></td></tr>
+                          <tr role="row">
+                            <td colspan="1" width="150px">
+                              <div class="checkbox">
+                                <label class="margin"><input type="checkbox" class="node-2" id="parent-node-0-2" parent-node="2" belong="0">分类管理</label>
+                              </div>
+                            </td>
+                            <td colspan="2">
+                              <div class="checkbox" id="node-list-0-2">
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-2">分类列表</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-2">添加分类</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-2">修改分类</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-2">删除分类</label>
+                                <label class="margin"><input type="checkbox" class="node-3" belong="0-2">分类前台权限</label>
+                              </div>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <table id="role-list-1" class="table">
+                          <tbody>
+                          <tr role="row" class="odd bg-gray">
+                            <td colspan="3">
+                              <div class="checkbox">
+                                <label><input type="checkbox" class="node-1" id="top-node-1" belong="1">用户</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr role="row">
+                            <td colspan="1" width="150px">
+                              <div class="checkbox">
+                                <label class="margin"><input type="checkbox" class="node-2" id="parent-node-1-0" parent-node="0" belong="1">用户管理</label>
+                              </div>
+                            </td>
+                            <td colspan="2">
+                              <div class="checkbox" id="node-list-1-0">
+                                <label class="margin"><input name="checked[]" value="1" type="checkbox" class="node-3" belong="1-0">用户列表</label>
+                                <label class="margin"><input name="checked[]" value="2" type="checkbox" class="node-3" belong="1-0">添加用户</label>
+                                <label class="margin"><input name="checked[]" value="3" type="checkbox" class="node-3" belong="1-0">修改用户</label>
+                                <label class="margin"><input name="checked[]" value="4" type="checkbox" class="node-3" belong="1-0">删除用户</label>
+                                <label class="margin"><input name="checked[]" value="5" type="checkbox" class="node-3" belong="1-0">用户权限</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr role="row">
+                            <td colspan="1" width="150px">
+                              <div class="checkbox">
+                                <label class="margin"><input type="checkbox" class="node-2" id="parent-node-1-1" parent-node="1" belong="1">角色管理</label>
+                              </div>
+                            </td>
+                            <td colspan="2">
+                              <div class="checkbox" id="node-list-1-1">
+                                <label class="margin"><input name="checked[]" value="6"  type="checkbox" class="node-3" belong="1-1">角色列表</label>
+                                <label class="margin"><input name="checked[]" value="7"  type="checkbox" class="node-3" belong="1-1">添加角色</label>
+                                <label class="margin"><input name="checked[]" value="8"  type="checkbox" class="node-3" belong="1-1">修改角色</label>
+                                <label class="margin"><input name="checked[]" value="9"  type="checkbox" class="node-3" belong="1-1">删除角色</label>
+                                <label class="margin"><input name="checked[]" value="10"  type="checkbox" class="node-3" belong="1-1">角色权限</label>
+                              </div>
+                            </td>
+                          </tr>
                           </tbody>
                         </table>
                       </div>
@@ -118,13 +199,3 @@ $this->registerCss($cssString);
     </div>
   </section>
   <!-- /.content -->
-  <!--自定义js-->
-<?php $this->beginBlock('custom') ?>
-  $(function () {
-  // ckeditor init
-  CKEDITOR.replace('editor', { height: '400px'});
-  // fileinput init
-  $("#img").fileinput();
-  })
-<?php $this->endBlock() ?>
-<?php $this->registerJs($this->blocks['custom'], \yii\web\View::POS_END); ?>
