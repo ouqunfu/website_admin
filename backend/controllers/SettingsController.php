@@ -37,4 +37,9 @@ class SettingsController extends Controller
     {
         return $this->render('add-str-filter');
     }
+
+    public function actionAttachment()
+    {
+        return $this->render('attachment');
+    }
 }

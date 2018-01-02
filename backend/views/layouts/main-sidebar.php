@@ -104,7 +104,7 @@ use yii\helpers\Url;
           <li><a href="<?php echo Url::toRoute('settings/index');?>">网站配置</a></li>
           <li><a href="<?php echo Url::toRoute('settings/watermark');?>">水印设置</a></li>
           <li><a href="<?php echo Url::toRoute('settings/str-filter-list');?>">敏感词管理</a></li>
-          <li><a href="<?php echo Url::toRoute('settings/list');?>">附件设置</a></li>
+          <li><a href="<?php echo Url::toRoute('settings/attachment');?>">附件设置</a></li>
         </ul>
       </li>
       <!--自定义-->
