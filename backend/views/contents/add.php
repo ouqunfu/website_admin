@@ -379,7 +379,7 @@ $this->registerCss($cssString);
   // ckeditor init
   CKEDITOR.replace('editor', { height: '400px'});
   // fileinput init
-  $("#img").fileinput();
+  $("#thumbimg").fileinput();
   //Initialize Select2 Elements
   $('.select2').select2();
   //Date time picker

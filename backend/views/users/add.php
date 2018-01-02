@@ -8,11 +8,6 @@ use backend\assets\AppAsset;
 $this->title = 'AdminSYS - 后台管理中心';
 
 //load text editor css and js file
-AppAsset::addScript($this, '@web/frontend/bower_components/ckeditor/ckeditor.js');
-
-AppAsset::addCss($this, '@web/frontend/bower_components/bootstrap-fileinput/css/fileinput.min.css');
-AppAsset::addScript($this, '@web/frontend/bower_components/bootstrap-fileinput/js/fileinput.min.js');
-AppAsset::addScript($this, '@web/frontend/bower_components/bootstrap-fileinput/js/locales/zh.js');
 
 //自定义css
 $cssString = ".nav-tabs-custom{box-shadow: none;}";
@@ -142,13 +137,3 @@ $this->registerCss($cssString);
     </div>
   </section>
   <!-- /.content -->
-  <!--自定义js-->
-<?php $this->beginBlock('custom') ?>
-  $(function () {
-  // ckeditor init
-  CKEDITOR.replace('editor', { height: '400px'});
-  // fileinput init
-  $("#img").fileinput();
-  })
-<?php $this->endBlock() ?>
-<?php $this->registerJs($this->blocks['custom'], \yii\web\View::POS_END); ?>

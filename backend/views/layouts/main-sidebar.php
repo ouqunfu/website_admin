@@ -101,7 +101,7 @@ use yii\helpers\Url;
               </span>
         </a>
         <ul class="treeview-menu" <?php if('settings' == $this->params['tag']) echo 'style="display:block"';?>>
-          <li><a href="<?php echo Url::toRoute('settings/list');?>">网站配置</a></li>
+          <li><a href="<?php echo Url::toRoute('settings/index');?>">网站配置</a></li>
           <li><a href="<?php echo Url::toRoute('settings/list');?>">水印设置</a></li>
           <li><a href="<?php echo Url::toRoute('settings/list');?>">图片设置</a></li>
           <li><a href="<?php echo Url::toRoute('settings/list');?>">字符过滤</a></li>
