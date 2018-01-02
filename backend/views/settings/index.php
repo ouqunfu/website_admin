@@ -139,9 +139,9 @@ $this->registerCss($cssString);
                       <label for="site_status" class="col-sm-2 control-label">站点状态</label>
                       <div class="col-sm-8 col-md-5">
                         <select class="form-control" id="site_status">
-                          <option value="1" selected="">开启</option>
-                          <option value="2" selected="">关闭</option>
-                          <option value="3" selected="">挂起</option>
+                          <option value="1" selected >开启</option>
+                          <option value="2">关闭</option>
+                          <option value="3">挂起</option>
                         </select>
                       </div>
                     </div>
@@ -149,8 +149,8 @@ $this->registerCss($cssString);
                       <label for="site_lang" class="col-sm-2 control-label">语言设置</label>
                       <div class="col-sm-8 col-md-5">
                         <select class="form-control" id="site_lang">
-                          <option value="cn" selected="">中文</option>
-                          <option value="en" selected="">英文</option>
+                          <option value="cn" selected>中文</option>
+                          <option value="en">英文</option>
                         </select>
                       </div>
                     </div>
@@ -158,8 +158,8 @@ $this->registerCss($cssString);
                       <label for="nav_top" class="col-sm-2 control-label">网站导航</label>
                       <div class="col-sm-8 col-md-5">
                         <select class="form-control" id="nav_top">
-                          <option value="0" selected="">否</option>
-                          <option value="1" selected="">是</option>
+                          <option value="0">否</option>
+                          <option value="1" selected>是</option>
                         </select>
                       </div>
                     </div>
@@ -182,6 +182,24 @@ $this->registerCss($cssString);
                       </div>
                     </div>
                   </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_3">
+                    <div class="form-group">
+                      <label for="mobile_status" class="col-sm-2 control-label">手机版开关</label>
+                      <div class="col-sm-8 col-md-5">
+                        <select class="form-control" id="mobile_status">
+                          <option value="0">关</option>
+                          <option value="1" selected>开</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_4"></div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_5"></div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_6"></div>
                   <!-- /.tab-pane -->
                 </div>
                 <!-- /.tab-content -->
