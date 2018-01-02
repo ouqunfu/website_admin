@@ -25,7 +25,7 @@ $this->registerCss($cssString);
     </h1>
     <ol class="breadcrumb">
       <li><i class="fa fa-dashboard"></i> 设置</li>
-      <li class="active"><a href="<?php echo Url::toRoute('tags/add'); ?>">网站配置</a></li>
+      <li class="active"><a href="<?php echo Url::toRoute('settings/index'); ?>">网站配置</a></li>
     </ol>
   </section>
 

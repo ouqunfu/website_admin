@@ -18,8 +18,23 @@ class SettingsController extends Controller
         $this->view->params['tag'] = 'settings';
         return true;
     }
+
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    public function actionWatermark()
+    {
+        return $this->render('watermark');
+    }
+
+    public function actionStrFilterList()
+    {
+        return $this->render('list-str-filter');
+    }
+    public function actionStrFilterAdd()
+    {
+        return $this->render('add-str-filter');
     }
 }
