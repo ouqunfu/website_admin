@@ -90,7 +90,7 @@ use yii\helpers\Url;
         </a>
         <ul class="treeview-menu" <?php if('market' == $this->params['tag']) echo 'style="display:block"';?>>
           <li><a href="<?php echo Url::toRoute('market/list');?>">SEO管理</a></li>
-          <li><a href="<?php echo Url::toRoute('market/list');?>">友链管理</a></li>
+          <li><a href="<?php echo Url::toRoute('market/list-links');?>">友链管理</a></li>
         </ul>
       </li>
       <!--设置-->
