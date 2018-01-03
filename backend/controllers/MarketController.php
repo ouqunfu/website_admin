@@ -27,4 +27,14 @@ class MarketController extends Controller
     {
         return $this->render('add-links');
     }
+
+    public function actionListLinksCato()
+    {
+        return $this->render('list-links-cato');
+    }
+
+    public function actionAddLinksCato()
+    {
+        return $this->render('add-links-cato');
+    }
 }
