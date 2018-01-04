@@ -19,9 +19,9 @@ class CustomsController extends Controller
     }
 
     public function actionListContentField()
-{
-    return $this->render('list-content-field');
-}
+    {
+        return $this->render('list-content-field');
+    }
 
     public function actionAddContentField()
     {
