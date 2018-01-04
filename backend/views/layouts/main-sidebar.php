@@ -116,7 +116,7 @@ use yii\helpers\Url;
         </a>
         <ul class="treeview-menu" <?php if('customs' == $this->params['tag']) echo 'style="display:block"';?>>
           <li><a href="<?php echo Url::toRoute('customs/list-content-field');?>">内容字段</a></li>
-          <li><a href="<?php echo Url::toRoute('customs/list');?>">用户字段</a></li>
+          <li><a href="<?php echo Url::toRoute('customs/list-user-field');?>">用户字段</a></li>
         </ul>
       </li>
     </ul>
