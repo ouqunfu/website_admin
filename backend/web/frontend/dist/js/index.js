@@ -95,7 +95,7 @@ $(function () {
         $(this).addClass('selected-url');
       }
       for (var i = 0; i < arrUrlRule.length; i++) {
-        if(arrUrlRule[i]){
+        if (arrUrlRule[i]) {
           tempArr.push(arrUrlRule[i]);
         }
       }
@@ -108,7 +108,7 @@ $(function () {
     urlRule = urlRule ? '/' + urlRule : urlRule;
     $("#urlRule").val(urlRule);
   });
-  $("#urlRule").on('blur',function () {
+  $("#urlRule").on('blur', function () {
     var urlRule = $(this).val();
     var selectTags = [];
     $(".select-url-tag").each(function (e) {
@@ -119,14 +119,14 @@ $(function () {
       var arrUrlRule = urlRule.split('/');
       arrUrlRule.forEach(function (rule) {
         $(".select-url-tag").each(function (e) {
-          if(rule === $(this).attr("data-rule")){
+          if (rule === $(this).attr("data-rule")) {
             $(this).addClass('selected-url');
           }
         });
       });
       var tempArr = [];
       for (var i = 0; i < arrUrlRule.length; i++) {
-        if(arrUrlRule[i]){
+        if (arrUrlRule[i]) {
           tempArr.push(arrUrlRule[i]);
         }
       }
@@ -134,5 +134,24 @@ $(function () {
       urlRule = urlRule ? '/' + urlRule : urlRule;
       $("#urlRule").val(urlRule);
     }
-  })
+  });
+
+  //SEO管理规则
+  $(".select-seo-tag").click(function () {
+    var selectTag = $(this).attr("data-rule");
+    $("#seo_rule").insertAtCursor(selectTag);
+  });
+
+  //列表页全选反选
+  $("#list_select_all").click(function () {
+    if ($(this).is(':checked')) { //全选
+      $("table tbody").find("input[type='checkbox']").each(function () {
+        $(this).prop("checked", true);
+      });
+    } else { //反选
+      $("table tbody").find("input[type='checkbox']").each(function () {
+        $(this).prop("checked", false);
+      });
+    }
+  });
 });

@@ -44,7 +44,7 @@ AppAsset::addCss($this,'@web/frontend/bower_components/datatables.net-bs/css/dat
                   <thead>
                   <tr role="row">
                     <th width="5%">
-                      <input title="点击全选本页的所有项目" type="checkbox">
+                      <input title="点击全选本页的所有项目" type="checkbox" id="list_select_all">
                     </th>
                     <th width="10%">
                       名称

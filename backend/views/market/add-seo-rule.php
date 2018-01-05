@@ -8,6 +8,7 @@ use backend\assets\AppAsset;
 $this->title = 'AdminSYS - 后台管理中心';
 
 //load text editor css and js file
+AppAsset::addScript($this, '@web/frontend/plugins/insertAtCursor/insertAtCursor.min.js');
 
 //自定义css
 //$cssString = ".cke{visibility:hidden;}";
@@ -79,7 +80,7 @@ $this->title = 'AdminSYS - 后台管理中心';
             <div class="form-group">
               <label for="seo_rule_example" class="col-sm-2 control-label">示例</label>
               <div class="col-sm-8 col-md-5">
-                <textarea class="form-control" id="seo_rule_example" rows="5" cols="105"></textarea>
+                <textarea class="form-control" id="seo_rule_example" rows="5" cols="105" placeholder="李宁新款男子半掌气垫潮流休闲鞋Bubble Up男运动鞋GLAL007  市场价359.000元，名鞋库价仅179.000元，全场3-7折优惠。购买正品李宁 GLAL007-6，了解李宁GLAL007-6商品信息就上名鞋库。"></textarea>
               </div>
               <div class="col-sm-2 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
@@ -88,11 +89,11 @@ $this->title = 'AdminSYS - 后台管理中心';
               </div>
             </div>
             <div class="form-group">
-              <label for="seo_rule" class="col-sm-2 control-label">规则</label>
+              <label for="seo_rule" class="col-sm-2 control-label">规则内容</label>
               <div class="col-sm-8 col-md-5">
                 <div class="row">
                   <div class="col-md-12">
-                    <textarea class="form-control" id="seo_rule" rows="5" cols="105"></textarea>
+                    <textarea class="form-control" id="seo_rule" rows="5" cols="105" placeholder="%title%休闲鞋%tags%男运动鞋%tags%  市场价%price%元，%siteName%价仅%price%元，全场3-7折优惠。购买正品%title% %tags%，了解%title%%tags%商品信息就上%siteName%。"></textarea>
                   </div>
                 </div>
                 <div class="row blank">
@@ -105,49 +106,39 @@ $this->title = 'AdminSYS - 后台管理中心';
                 </div>
                 <div class="row">
                   <div class="col-md-12">
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="year（文章的年份，四位数字，形如2004。）"
-                            data-rule="%year%">年：%year%
+                    <button type="button" class="btn btn-default btn-sm select-seo-tag margin"
+                            title="标题（文章的SEO信息页面标题，若不存在则使用文章的标题）"
+                            data-rule="%title%">标题：%title%
                     </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="monthnum（月份，形如05。）" data-rule="%monthnum%">
-                      月：%monthnum%
+                    <button type="button" class="btn btn-default btn-sm select-seo-tag margin"
+                            title="关键词（文章的SEO信息页面关键词）" data-rule="%keywords%">
+                      关键词：%keywords%
                     </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="day（日期，形如28。）" data-rule="%day%">日：%day%
+                    <button type="button" class="btn btn-default btn-sm select-seo-tag margin"
+                            title="描述（文章的SEO信息页面描述）" data-rule="%description%">描述：%description%
                     </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="hour（小时，形如15。）" data-rule="%hour%">时：%hour%
+                    <button type="button" class="btn btn-default btn-sm select-seo-tag margin"
+                            title="标签（文章的标签）" data-rule="%tags%">标签：%tags%
                     </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="minute（分钟，形如43。）" data-rule="%minute%">
-                      分：%minute%
+                    <button type="button" class="btn btn-default btn-sm select-seo-tag margin"
+                            title="分类（文章的分类）" data-rule="%cato%">
+                      分类：%cato%
                     </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="second（秒数，形如33。）" data-rule="%second%">
-                      秒：%second%
+                    <button type="button" class="btn btn-default btn-sm select-seo-tag margin"
+                            title="栏目（文章的栏目）" data-rule="%column%">
+                      栏目：%column%
                     </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="post_id（内容的唯一ID，形如423。）"
-                            data-rule="%post_id%">ID：%post_id%
+                    <button type="button" class="btn btn-default btn-sm select-seo-tag margin"
+                            title="专题（文章所属专题）"
+                            data-rule="%subject%">专题：%subject%
                     </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="postname（清理过的内容标题（别名）。）"
-                            data-rule="%postname%">name：%postname%
+                    <button type="button" class="btn btn-default btn-sm select-seo-tag margin"
+                            title="网站名称（设置的网站名称）"
+                            data-rule="%siteName%">网站名称：%siteName%
                     </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="category（分类别名，嵌套的子分类在URL中会显示为嵌套的文件夹。）"
-                            data-rule="%category%">分类：%category%
-                    </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="tag（标签名。）" data-rule="%tag%">标签：%tag%
-                    </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="author（清理过的作者姓名。）" data-rule="%author%">
-                      作者：%author%
-                    </button>
-                    <button type="button" class="btn btn-default btn-sm select-url-tag margin"
-                            title="page（分页的页码。）" data-rule="%page%">分页：%page%
+                    <button type="button" class="btn btn-default btn-sm select-seo-tag margin"
+                            title="价格（产品的价格）"
+                            data-rule="%price%">价格：%price%
                     </button>
                   </div>
                 </div>
@@ -155,7 +146,7 @@ $this->title = 'AdminSYS - 后台管理中心';
               <div class="col-sm-2 custom-input-icon">
                             <span data-toggle="tooltip" data-placement="top"
                                   class="badge bg-yellow-gradient custom-tooltip"
-                                  data-original-title="请填写SEO规则！">!</span>
+                                  data-original-title="请填写SEO规则内容！">!</span>
               </div>
             </div>
           </div>
