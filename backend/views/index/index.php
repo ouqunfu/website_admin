@@ -111,7 +111,7 @@ $this->title = 'AdminSYS - 后台管理中心';
           </a>
           <a class="btn btn-app">
             <span class="badge bg-primary">3</span>
-            <i class="fa fa-list-ul"></i> 用户组管理
+            <i class="fa fa-list-ul"></i> 角色管理
           </a>
         </div>
         <!-- /.box-body -->

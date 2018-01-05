@@ -54,6 +54,14 @@ return [
             ],
 //            'linkAssets' => true,
         ],
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=website',
+            'username' => 'jeffrey',
+            'password' => 'jeffrey123',
+            'charset' => 'utf8',
+            'tablePrefix' => 'ws_',
+        ],
     ],
     'params' => $params,
 ];

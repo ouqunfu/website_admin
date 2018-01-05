@@ -63,8 +63,8 @@ use yii\helpers\Url;
               </span>
         </a>
         <ul class="treeview-menu" <?php if('users' == $this->params['tag']) echo 'style="display:block"';?>>
-          <li><a href="<?php echo Url::toRoute('users/list');?>">用户管理</a></li>
-          <li><a href="<?php echo Url::toRoute('role/list');?>">角色管理</a></li>
+          <li <?php if('users/list' == $this->params['tag_li']) echo "class='active'"; ?>><a href="<?php echo Url::toRoute('users/list');?>">用户管理</a></li>
+          <li <?php if('role/list' == $this->params['tag_li']) echo "class='active'"; ?>><a href="<?php echo Url::toRoute('role/list');?>">角色管理</a></li>
         </ul>
       </li>
       <!--功能-->
