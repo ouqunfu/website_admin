@@ -2,12 +2,14 @@
 
 namespace backend\common\controllers;
 
+use backend\common\services\BaseService;
 use backend\common\services\CommonUtil;
-use backend\models\Log;
+use backend\common\services\Constants;
 use backend\services\LogService;
 use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
+use yii\web\Response;
 
 /**
  * @author: qunfu
@@ -30,7 +32,7 @@ class BaseController extends Controller
                         'allow' => true,
                         'matchCallback' => function ($rule, $action) {
 //                            $this->loginFilter();
-//                            $this->accessControl();
+                            $this->accessControl();
                             $this->logFilter();
                             return true;
                         }
@@ -42,8 +44,23 @@ class BaseController extends Controller
 
     protected function accessControl()
     {
-        echo 'accessControl';
-        die;
+        $user = Yii::$app->session->get('user');
+        //super administrators role
+        if (1 == intval($user['role_id'])) {
+            return true;
+        }
+        $function = [
+            'module' => Yii::$app->controller->module->id,
+            'controller' => Yii::$app->controller->id,
+            'action' => Yii::$app->controller->action->id,
+            'status' => 'active'
+        ];
+        $baseService = new BaseService();
+        $res = $baseService->accessControl($function);
+        if (!$res) {
+            return $this->renderJson(Constants::ERROR_ACCESS, 'Permission denied!');
+        }
+        return true;
     }
 
     protected function loginFilter()
@@ -76,17 +93,22 @@ class BaseController extends Controller
 
     /**
      * api统一返回json格式方法
-     * @param array $data
-     * @param string $msg
      * @param int $code
+     * @param string $msg
+     * @param array $data
+     * @return string
      */
-    public function renderJson($data = [], $msg = "ok", $code = 200)
+    public function renderJson($code = 200, $msg = "ok", $data = [])
     {
-        header("Content-type: application/json");
-        echo json_encode([
+        //利用response，发送json格式数据
+        $response = Yii::$app->response;
+        $response->format = Response::FORMAT_JSON;
+        $response->data = [
             "code" => $code,
             "msg" => $msg,
             "data" => $data,
-        ]);
+        ];
+        $response->send();
+        exit();
     }
 }

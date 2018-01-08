@@ -48,4 +48,11 @@ class LogService extends BaseService
         $data = $logModel->lists($condition, $groupBy, $orderBy);
         return $data;
     }
+
+    public static function getOne()
+    {
+        $logModel = new Log();
+        $data = $logModel->getOne();
+        return $data;
+    }
 }

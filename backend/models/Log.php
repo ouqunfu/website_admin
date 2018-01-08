@@ -44,4 +44,10 @@ class Log extends ActiveRecord
         $data['pageCount'] = ceil($pagination->totalCount / Constants::PAGE_SIZE);
         return $data;
     }
+
+    public function getOne()
+    {
+        $data = self::find()->asArray()->one();
+        return $data;
+    }
 }

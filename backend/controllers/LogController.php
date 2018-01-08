@@ -19,4 +19,12 @@ class LogController extends BaseController
         $data = $logService->lists();
         return $this->renderJson($data);
     }
+
+    public function actionIndex()
+    {
+        $logService = new LogService();
+        $data = $logService->getOne();
+        var_dump($data);die;
+        return $this->renderJson($data);
+    }
 }
