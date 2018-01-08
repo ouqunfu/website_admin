@@ -29,8 +29,8 @@ class BaseController extends Controller
                     [
                         'allow' => true,
                         'matchCallback' => function ($rule, $action) {
-                            $this->loginFilter();
-                            $this->accessControl();
+//                            $this->loginFilter();
+//                            $this->accessControl();
                             $this->logFilter();
                             return true;
                         }
@@ -55,10 +55,9 @@ class BaseController extends Controller
     protected function logFilter()
     {
         $request = Yii::$app->request;
-        if (($request->isGet)) {
-            echo 'ddd';
+        if (!($request->isGet)) {
             $user = Yii::$app->session->get('user');
-            $log = [
+            $logData = [
                 'log_type' => Yii::$app->controller->module->id . '/' . Yii::$app->controller->id . '/' . Yii::$app->controller->action->id,
                 'request_method' => $request->method,
                 'action_function' => Yii::$app->controller->action->id,
@@ -70,9 +69,24 @@ class BaseController extends Controller
                 'action_ip' => CommonUtil::getClientIP()
             ];
             $logService = new LogService();
-            $logService->create($log);
+            $logService->create($logData);
         }
+        return true;
+    }
 
-        return;
+    /**
+     * api统一返回json格式方法
+     * @param array $data
+     * @param string $msg
+     * @param int $code
+     */
+    public function renderJson($data = [], $msg = "ok", $code = 200)
+    {
+        header("Content-type: application/json");
+        echo json_encode([
+            "code" => $code,
+            "msg" => $msg,
+            "data" => $data,
+        ]);
     }
 }

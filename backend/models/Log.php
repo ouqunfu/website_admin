@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use backend\common\services\CommonUtil;
 use backend\common\services\Constants;
 use yii\data\Pagination;
 use yii\db\ActiveRecord;
@@ -15,16 +16,9 @@ use yii\db\ActiveRecord;
 class Log extends ActiveRecord
 {
     /**
-     * 添加数据
-     * @param array $data
-     * @return bool
+     * 查询所有
+     * @return array|ActiveRecord[]
      */
-    public function create($data = [])
-    {
-        $res = $this->insert($data);
-        return $res;
-    }
-
     public function listsAll()
     {
         $data = self::find()->asArray()->all();

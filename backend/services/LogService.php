@@ -20,7 +20,8 @@ class LogService extends BaseService
     public function create($data = [])
     {
         $logModel = new Log();
-        $res = $logModel->create($data);
+        $logModel = $this->bindAttributes($logModel, $data);
+        $res = $logModel->insert();
         return $res;
     }
 
