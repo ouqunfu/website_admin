@@ -31,7 +31,7 @@ class BaseController extends Controller
                     [
                         'allow' => true,
                         'matchCallback' => function ($rule, $action) {
-//                            $this->loginFilter();
+                            $this->loginFilter();
                             $this->accessControl();
                             $this->logFilter();
                             return true;
@@ -42,6 +42,22 @@ class BaseController extends Controller
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+        ];
+    }
+
+    /**
+     * 权限检测
+     * @return bool|string
+     */
     protected function accessControl()
     {
         $user = Yii::$app->session->get('user');
@@ -63,12 +79,22 @@ class BaseController extends Controller
         return true;
     }
 
+    /**
+     * 登录过滤
+     * @return bool|string
+     */
     protected function loginFilter()
     {
-        echo 'loginFilter';
-        die;
+        if (!Yii::$app->session->get('user')) {
+            return $this->renderJson(Constants::ERROR_LOGIN, 'Not logged in!');
+        }
+        return true;
     }
 
+    /**
+     * 日志记录
+     * @return bool
+     */
     protected function logFilter()
     {
         $request = Yii::$app->request;

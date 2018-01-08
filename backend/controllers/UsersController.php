@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use backend\common\controllers\BaseController;
+use Yii;
 
 /**
  * @author: qunfu
@@ -21,8 +22,11 @@ class UsersController extends BaseController
 
     public function actionLogin()
     {
-        echo 'action-login';
-        die;
+        $request = Yii::$app->request;
+        if ($request->isPost) {
+            return $this->goHome();
+        }
+        return $this->renderPartial('login');
     }
 
     public function actionList()
